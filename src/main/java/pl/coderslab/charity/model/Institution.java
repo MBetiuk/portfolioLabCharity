@@ -14,9 +14,9 @@ public class Institution {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column
+
     private String name;
-    @Column
+
     private String description;
 
 
