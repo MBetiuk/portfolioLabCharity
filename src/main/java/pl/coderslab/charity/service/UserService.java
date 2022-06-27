@@ -21,4 +21,6 @@ public class UserService {
         user.setPassword(encodedPass);
         userRepository.save(user);
     }
+
+
 }

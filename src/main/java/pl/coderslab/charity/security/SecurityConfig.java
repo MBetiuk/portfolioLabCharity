@@ -47,9 +47,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/register", "/login").permitAll()
+                .antMatchers("/", "/home", "/register", "/login", "/admin/**").permitAll()
+//                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().formLogin()
+                .defaultSuccessUrl("/start") // TODO: 27/06/2022 zmienic adres strony !!
                 .loginPage("/login").failureUrl("/login?error=true")
 //                .successHandler(customAuthSuccessHandler)
 //                .failureHandler(customAuthFailureHandler)

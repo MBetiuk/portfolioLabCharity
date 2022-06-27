@@ -22,14 +22,19 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String register(Model model){
+    public String register(Model model) {
         model.addAttribute("user", new User());
+
         return "register";
     }
 
     @PostMapping("/register")
-    public String register(User user){
+    public String register(User user) {
+        user.setRole("USER");
         userService.save(user);
         return "mmm";
     }
 }
+
+// TODO: 26/06/2022 - tylko admin może dodać innego admina 
+// TODO: 26/06/2022 - admin moze
