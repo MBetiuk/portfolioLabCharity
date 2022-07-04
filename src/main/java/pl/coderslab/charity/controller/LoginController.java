@@ -12,6 +12,8 @@ public class LoginController {
         return "login";
     }
 
+
+
     // TODO: 27/06/2022 - - czy tak ma wyglądać sprawdzenie użytkownika, czy tuaj jest if dla admina i przekierowanie na stronę dla admina? 
 //    @PostMapping("/login")
 //    public String loginError(Model model, HttpServletRequest request) {

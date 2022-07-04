@@ -32,7 +32,7 @@ public class RegisterController {
     public String register(User user) {
         user.setRole("USER");
         userService.save(user);
-        return "mmm";
+        return "redirect:/admin";
     }
 }
 

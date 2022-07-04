@@ -6,9 +6,6 @@ import pl.coderslab.charity.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 User findByUserName(String userName);
 
-    /**
-     * @param email
-     * @return
-     */
+
 User findByEmail(String email);
 }

@@ -10,10 +10,15 @@ import pl.coderslab.charity.repository.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-    @Autowired
+
+
     private UserRepository userRepository;
 
-            @Override
+    public CustomUserDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email);
         if (user == null) {

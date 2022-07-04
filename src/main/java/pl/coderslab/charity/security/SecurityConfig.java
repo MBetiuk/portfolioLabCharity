@@ -37,18 +37,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
+
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authProvider());
     }
 
+
+    //filtrowanie żądań, które przyjdą do serwera + zabezpieczenia na http
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
+                //wymaga
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/register", "/login", "/admin/**").permitAll()
-//                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/", "/home", "/register", "/login").permitAll()
+//                .antMatchers("/admin/**").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().formLogin()
                 .defaultSuccessUrl("/start") // TODO: 27/06/2022 zmienic adres strony !!
